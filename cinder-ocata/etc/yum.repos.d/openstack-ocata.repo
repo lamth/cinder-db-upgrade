@@ -1,0 +1,5 @@
+[openstack-ocata]
+name=OpenStack Ocata Repository
+baseurl= https://buildlogs.centos.org/centos/7/cloud/x86_64/openstack-ocata/
+gpgcheck=0
+enabled=1

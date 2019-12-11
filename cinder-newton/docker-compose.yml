@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  cinder-newton-db:
+    image: mariadb:10.4
+    volumes:
+      - "./database/:/docker-entrypoint-initdb.d" 
+    environment:
+      MYSQL_ROOT_PASSWORD: 123123Aa
+      MYSQL_DATABASE: cinder 
+      MYSQL_USER: cinder
+      MYSQL_PASSWORD: 123123Aa 
+
+  cinder-newton:
+    depends_on:
+      - cinder-newton-db
+    build: .
+    links:
+      - cinder-newton-db:database
+    volumes:
+      - "./resultdb/:/root/results"
+    command: bash -c "cinder-manage db sync && mysqldump -uroot -p123123Aa -hdatabase cinder> /root/results/cinder-newton.sql && tail -f /dev/null"
+    

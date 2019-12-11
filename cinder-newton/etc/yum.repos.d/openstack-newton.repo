@@ -1,0 +1,5 @@
+[openstack-newton]
+name=OpenStack Newton Repository
+baseurl= https://buildlogs.centos.org/centos/7/cloud/x86_64/openstack-newton/
+gpgcheck=0
+enabled=1

@@ -1,6 +1,6 @@
 FROM centos:7
 
-COPY ./etc/yum.repos.d/openstack-ocata.repo /etc/yum.repos.d/openstack-ocata.repo 
+COPY ./etc/yum.repos.d/openstack-queens.repo /etc/yum.repos.d/openstack-queens.repo 
 
 RUN yum install -y python-openstackclient mariadb python2-PyMySQL openstack-cinder
 

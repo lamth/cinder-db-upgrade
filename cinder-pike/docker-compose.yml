@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  cinder-ocata-db:
+  cinder-pike-db:
     image: mariadb:10.4
     volumes:
       - "./database/:/docker-entrypoint-initdb.d" 
@@ -11,13 +11,13 @@ services:
       MYSQL_USER: cinder
       MYSQL_PASSWORD: 123123Aa 
 
-  cinder-ocata:
+  cinder-pike:
     depends_on:
-      - cinder-ocata-db
+      - cinder-pike-db
     build: .
     links:
-      - cinder-ocata-db:database
+      - cinder-pike-db:database
     volumes:
       - "./resultdb/:/root/results"
-    command: bash -c "cinder-manage db sync && mysqldump -uroot -p123123Aa -hdatabase cinder> /root/results/cinder-ocata.sql && tail -f /dev/null"
+    command: bash -c "cinder-manage db sync && mysqldump -uroot -p123123Aa -hdatabase cinder> /root/results/cinder-pike.sql && tail -f /dev/null"
     

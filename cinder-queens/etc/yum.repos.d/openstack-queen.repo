@@ -1,0 +1,5 @@
+[openstack-queens]
+name=OpenStack Queens Repository
+baseurl= https://buildlogs.centos.org/centos/7/cloud/x86_64/openstack-queens/
+gpgcheck=0
+enabled=1
